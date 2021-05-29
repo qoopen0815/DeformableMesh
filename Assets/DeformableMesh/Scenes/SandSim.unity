@@ -231,7 +231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &343970991
 Transform:
   m_ObjectHideFlags: 0
@@ -948,7 +948,7 @@ GameObject:
   - component: {fileID: 3469287837482133113}
   - component: {fileID: 1711813855633756851}
   - component: {fileID: 3451118302482135103}
-  - component: {fileID: 919132149155361639}
+  - component: {fileID: 919132149155361640}
   m_Layer: 0
   m_Name: DemoArea
   m_TagString: Untagged
@@ -956,7 +956,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &919132149155361639
+--- !u!114 &919132149155361640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -965,15 +965,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132149155361638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdfc1a128dee9b74980a766b002c6a3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 40f36b40783740141beb6726e64b5f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionRadius: 0.1
-  maximumDepression: 0.05
-  originalVertices: []
-  modifiedVertices: []
-  isModifiedVertices: 
-  SandModel: {fileID: 1108918623552554218, guid: 92d50deb8d6199d46b421fe4d8b3d182, type: 3}
+  mf: {fileID: 3469287837482133113}
+  mc: {fileID: 3451118302482135103}
 --- !u!23 &1711813855633756851
 MeshRenderer:
   m_ObjectHideFlags: 0
