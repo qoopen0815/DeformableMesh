@@ -10,8 +10,8 @@ public class GenerateSand : MonoBehaviour
 
     public Vector3 lineStart;
     public Vector3 lineEnd;
-    public float offset;
     
+    [SerializeField] private GameObject _sandModels;
     [SerializeField] private Terrain _targetTerrain;
     private Vector3 _terrainSize;
     private float[,] _terrainHeightmap;
@@ -48,16 +48,19 @@ public class GenerateSand : MonoBehaviour
             float height;
             foreach (Vector3 target in targets)
             {
-                height = this._terrainHeightmap[(int)(target.z * this._dimentionRatio.z), (int)(target.x * this._dimentionRatio.x)] - target.y * this._dimentionRatio.y;
+                height = this._terrainHeightmap[(int)(target.z * this._dimentionRatio.z), (int)(target.x * this._dimentionRatio.x)] / this._dimentionRatio.y - target.y;
                 if (height > 0)
                 {
-                    //Debug.Log(height);
                     this._terrainHeightmap[(int)(target.z * this._dimentionRatio.z), (int)(target.x * this._dimentionRatio.x)] = target.y * this._dimentionRatio.y;
-                    //for (int i = 0; i < height; i++)
-                    //{
-                    //    Debug.Log("instantiate");
-                    //    GameObject sand = Instantiate(_sandModel, target + new Vector3(0.0f, i / this._dimentionRatio.y, 0.0f), Quaternion.identity);
-                    //}
+                    if ((int)height != 0)
+                    {
+                        //Debug.Log(height);
+                        for (int i = 0; i < height; i++)
+                        {
+                            GameObject sand = Instantiate(_sandModel, target + new Vector3(0.0f, i, 0.0f), Quaternion.identity);
+                            sand.GetComponent<DeformTest>().terrain = this._targetTerrain;
+                        }
+                    }
                 }
             }
             this._targetTerrain.terrainData.SetHeightsDelayLOD(0, 0, this._terrainHeightmap);
@@ -66,19 +69,6 @@ public class GenerateSand : MonoBehaviour
 
     private Vector3[] GetDeformArea(Vector3 start, Vector3 end)
     {
-        // Patern 1
-        //Vector3 distVec = end - start;
-        //float dist = 0.1f;
-        //int vertNum = (int)(distVec.magnitude / dist);
-        //List<Vector3> DeformVerts = new List<Vector3>();
-        //Vector3 DeformVert = new Vector3();
-        //for (int i = 0; i < vertNum; i++)
-        //{
-        //    DeformVert = start + distVec * i / vertNum;
-        //    DeformVerts.Add(DeformVert);
-        //}
-
-        // Patern 2
         List<Vector3> DeformVerts = new List<Vector3>();
         int loopNum = 15;
         for (float i = 0.0f; i <= 1.0f; i += 1.0f / (float)loopNum)

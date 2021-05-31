@@ -24,7 +24,7 @@ public class DeformTest : MonoBehaviour
 
     private void Update()
     {
-        if (this._rigidBody.velocity.magnitude < 0.1f)
+        if (this._rigidBody.IsSleeping())
         {
             Destroy(gameObject);
         }

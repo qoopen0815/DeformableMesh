@@ -199,13 +199,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83721306}
-  m_LocalRotation: {x: -0.027529925, y: 0.97078896, z: -0.19500947, w: -0.13704847}
-  m_LocalPosition: {x: 69.67636, y: 14.78, z: 65.20605}
+  m_LocalRotation: {x: 0.10181009, y: -0.88365716, z: 0.22680233, w: 0.39666793}
+  m_LocalPosition: {x: 82.8, y: 36.22, z: 67.17}
   m_LocalScale: {x: 5, y: 0.61353254, z: 3.4064684}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 22.717, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.79, y: -131.65, z: 0}
 --- !u!1 &652106113
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,85 +405,38 @@ MonoBehaviour:
   _lineRenderer: {fileID: 0}
   lineStart: {x: 0, y: 0, z: 0}
   lineEnd: {x: 0, y: 0, z: 0}
-  offset: 0.1
+  _sandModels: {fileID: 0}
   _targetTerrain: {fileID: 0}
---- !u!1001 &939074068
-PrefabInstance:
+--- !u!1 &1235960375
+GameObject:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3745354299325252677, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_Name
-      value: Icosphere
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085322626408636159, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085322626408636159, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 33.61261
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085322626408636159, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085322626408636159, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 37.221092
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085322626408636159, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085322626408636159, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085322626408636159, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085322626408636159, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085322626408636159, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085322626408636159, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085322626408636159, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4556308247129012502, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: terrain
-      value: 
-      objectReference: {fileID: 672660944}
-    - target: {fileID: 4556308247129012502, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4556308247129012502, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: effectRate
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4556308247129012502, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: effectLevel
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4556308247129012505, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2bcc1c02016ed134a824f43f5d3899f2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235960376}
+  m_Layer: 0
+  m_Name: SandModels
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1235960376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235960375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 48.492905, y: 18.058723, z: 47.547165}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1445925117
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b54f43452647c47bc8269edef3125d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {x: 0, y: 0, z: 0.025}
+  move: {x: 0, y: 0, z: 0.01}
 --- !u!65 &1445925119
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -589,13 +542,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445925117}
-  m_LocalRotation: {x: -0, y: 0.99018174, z: -0, w: -0.13978618}
-  m_LocalPosition: {x: 69.14, y: 13, z: 63.35}
-  m_LocalScale: {x: 5, y: 0.02, z: 4}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 55.06, y: 22.22, z: 67.2}
+  m_LocalScale: {x: 5, y: 0.02, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 196.071, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!120 &1445925123
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -637,11 +590,11 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 66.29478, y: 13, z: 62.504597}
-  - {x: 71.09937, y: 13, z: 61.120457}
+  - {x: 52.56, y: 22.22, z: 64.7}
+  - {x: 57.56, y: 22.22, z: 64.7}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.36543185
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -723,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lineRenderer: {fileID: 1445925123}
-  lineStart: {x: 66.29478, y: 13, z: 62.504597}
-  lineEnd: {x: 71.09937, y: 13, z: 61.120457}
-  offset: 0
+  lineStart: {x: 52.56, y: 22.22, z: 64.7}
+  lineEnd: {x: 57.56, y: 22.22, z: 64.7}
+  _sandModels: {fileID: 1235960375}
   _targetTerrain: {fileID: 672660944}
