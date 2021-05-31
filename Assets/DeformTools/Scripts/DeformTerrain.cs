@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class DeformTest : MonoBehaviour
+public class DeformTerrain : MonoBehaviour
 {
     public Terrain terrain;
     public float effectLevel;

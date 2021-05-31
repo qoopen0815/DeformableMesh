@@ -58,7 +58,7 @@ public class GenerateSand : MonoBehaviour
                         for (int i = 0; i < height; i++)
                         {
                             GameObject sand = Instantiate(_sandModel, target + new Vector3(0.0f, i, 0.0f), Quaternion.identity);
-                            sand.GetComponent<DeformTest>().terrain = this._targetTerrain;
+                            sand.GetComponent<DeformTerrain>().terrain = this._targetTerrain;
                         }
                     }
                 }
