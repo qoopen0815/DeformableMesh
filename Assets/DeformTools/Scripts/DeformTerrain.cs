@@ -5,21 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class DeformTerrain : MonoBehaviour
 {
-    public Terrain terrain;
-    public float effectLevel;
-    public float effectRate;
+    [SerializeField] private float _sleepThreshold = 10f;
+    [SerializeField] private string _targetTarrainName = "Terrain";
 
     private Rigidbody _rigidBody;
-    private Vector3 _terrainSize;
-    private float[,] _terrainHeightmap;
-    private int _terrainHeightmapResolution;
+    private GameObject _targetTerrain;
 
     // Start is called before the first frame update
     private void Start()
     {
         this._rigidBody = this.GetComponent<Rigidbody>();
-        this._terrainSize = terrain.terrainData.size;
-        this._terrainHeightmapResolution = terrain.terrainData.heightmapResolution;
+        this._rigidBody.sleepThreshold = this._sleepThreshold;
+        this._targetTerrain = GameObject.Find(this._targetTarrainName);
     }
 
     private void Update()
@@ -30,27 +27,11 @@ public class DeformTerrain : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        Vector2Int vertPos = new Vector2Int();
-        Vector2 pos = new Vector3( this.transform.position.x * this._terrainHeightmapResolution / this._terrainSize.x ,
-                                   this.transform.position.z * this._terrainHeightmapResolution / this._terrainSize.z );
-
-        this._terrainHeightmap = terrain.terrainData.GetHeights(0, 0, this._terrainHeightmapResolution, this._terrainHeightmapResolution);
-        for (vertPos.x = 0; vertPos.x < this._terrainHeightmapResolution; vertPos.x++)
+        if (this._targetTerrain != null)
         {
-            for (vertPos.y = 0; vertPos.y < this._terrainHeightmapResolution; vertPos.y++)
-            {
-                this._terrainHeightmap[vertPos.y, vertPos.x] = this.terrain.terrainData.GetHeight(vertPos.x, vertPos.y) / this._terrainSize.y + effectRate * GetGaussian(effectLevel, (vertPos - pos).magnitude);
-            }
+            this._targetTerrain.GetComponent<TerrainManager>().GaussianDeformation(this.transform.position);
         }
-        terrain.terrainData.SetHeightsDelayLOD(0, 0, this._terrainHeightmap);
-    }
-
-    private float GetGaussian(float sigma, float dist)
-    {
-        float step = 1 / Mathf.Sqrt(2 * Mathf.PI * Mathf.Pow(sigma, 2));
-        float result = step * Mathf.Exp(-1 * dist * dist / (2 * Mathf.Pow(sigma, 2)));
-        return result;
     }
 }

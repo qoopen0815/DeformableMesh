@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1755067699459652676}
   - component: {fileID: 7924889595214575316}
   - component: {fileID: 640319123884936963}
+  - component: {fileID: 4085337037335012800}
   m_Layer: 0
   m_Name: TestModel
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241994495563029905}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 26.585999, y: 26.585999, z: 26.585999}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &4593591973861722254
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113,3 +114,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4085337037335012800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241994495563029905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7add9fed6beae46b49007808452dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sleepThreshold: 10
+  _tarrainName: Terrain

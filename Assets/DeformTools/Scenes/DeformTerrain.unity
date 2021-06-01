@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 190260766}
   - component: {fileID: 190260765}
   - component: {fileID: 190260764}
-  - component: {fileID: 190260767}
+  - component: {fileID: 190260768}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -293,7 +293,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &190260767
+--- !u!114 &190260768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,10 +302,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 190260763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf2995215aeaa594a95a9c7851c6440b, type: 3}
+  m_Script: {fileID: 11500000, guid: c834a20e56e9d1b45bd5e984a6980134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrain: {fileID: 190260765}
+  _isRestoreFirstTerrain: 1
+  _terrain: {fileID: 190260765}
+  _deformSmoothLevel: 1
+  _deformGain: 0.01
 --- !u!1 &285909364
 GameObject:
   m_ObjectHideFlags: 0
