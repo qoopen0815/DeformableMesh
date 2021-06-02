@@ -43,12 +43,13 @@ public class ExcavateLine : MonoBehaviour
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == this._targetLayerName)
         {
-            this._targetTerrain.GetComponent<TerrainManager>().ExcavateWithSand(this.GetDeformArea(this.transform.position + this._lineCenterPos + this._lineEnd[0], 
-                                                                                                      this.transform.position + this._lineCenterPos + this._lineEnd[1]));
+            Vector3[] targets = this.GetExcavateArea(this.transform.position + this._lineCenterPos + this._lineEnd[0], 
+                                                     this.transform.position + this._lineCenterPos + this._lineEnd[1]);
+            this._targetTerrain.GetComponent<TerrainManager>().ExcavateWithSand(targets);
         }
     }
 
-    private Vector3[] GetDeformArea(Vector3 start, Vector3 end)
+    private Vector3[] GetExcavateArea(Vector3 start, Vector3 end)
     {
         List<Vector3> DeformVerts = new List<Vector3>();
         int loopNum = 17;

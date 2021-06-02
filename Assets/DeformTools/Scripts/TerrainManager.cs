@@ -18,7 +18,7 @@ public class TerrainManager : MonoBehaviour
     private float[,] _terrainHeightmap;
     private float[,] _originalHeightmap;
     private int _terrainHeightmapResolution;
-    private List<Vector3> _sandGeneratePoints;
+    private List<Vector3> _sandGeneratePoints = new List<Vector3>();
     private string _prefabBoxName = "GeneratedSands";
     private GameObject _prefabBox;
 
@@ -39,6 +39,7 @@ public class TerrainManager : MonoBehaviour
     {
         this._terrain.terrainData.SetHeightsDelayLOD(0, 0, this._terrainHeightmap);
         this.generateSand();
+        this._sandGeneratePoints.Clear();
     }
 
     private void OnApplicationQuit()
@@ -121,8 +122,12 @@ public class TerrainManager : MonoBehaviour
         Vector3Int pos = new Vector3Int();
         for (int i = this.ToTerrainPositionX(position.x - this._deformSmoothLevel * 3); i < this.ToTerrainPositionX(position.x + this._deformSmoothLevel * 3); i++)
         {
+            if (i > this._terrainHeightmapResolution) continue;
+            
             for (int j = this.ToTerrainPositionZ(position.z - this._deformSmoothLevel * 3); j < this.ToTerrainPositionZ(position.z + this._deformSmoothLevel * 3); j++)
             {
+                if (j > this._terrainHeightmapResolution) continue;
+
                 pos = new Vector3Int(i, 0, j);
                 this._terrainHeightmap[pos.z, pos.x] = this._terrainHeightmap[pos.z, pos.x] + this._deformGain * GetGaussian(this._deformSmoothLevel, (pos - terrainPos).magnitude);
             }
