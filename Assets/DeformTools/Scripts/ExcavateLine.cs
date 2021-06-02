@@ -54,14 +54,6 @@ public class ExcavateLine : MonoBehaviour
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == this._targetLayerName)
         {
-            //Vector3[] line = new Vector3[] { this.transform.position + this._lineCenterPos + this._lineEnd[0], this.transform.position + this._lineCenterPos + this._lineEnd[1] };
-            //if (line[0].y > this._terrainManager.GetHeightmap(line[0]))
-            //{
-            //    if (line[1].y > this._terrainManager.GetHeightmap(line[1]))
-            //    {
-            //        this._isDeformable = true;
-            //    }
-            //}
             this._isDeformable = true;
         }
     }
