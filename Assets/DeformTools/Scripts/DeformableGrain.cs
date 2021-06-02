@@ -7,6 +7,7 @@ public class DeformableGrain : MonoBehaviour
 {
     [SerializeField] private float _sleepThreshold = 10f;
     [SerializeField] private string _targetTarrainName = "Terrain";
+    [SerializeField] private string _terrainLayerName = "Terrain";
     [SerializeField] private string _bucketLayerName = "Bucket";
 
     private Rigidbody _rigidBody;
@@ -44,6 +45,16 @@ public class DeformableGrain : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
+	if (LayerMask.LayerToName(collision.gameObject.layer) == this._terrainLayerName)
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("InActiveGrain");
+            this._isDeformable = true;
+        }
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "InActiveGrain")
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("InActiveGrain");
+            this._isDeformable = true;
+        }
         if (LayerMask.LayerToName(collision.gameObject.layer) == this._bucketLayerName)
         {
             this.gameObject.layer = LayerMask.NameToLayer("ActiveGrain");
