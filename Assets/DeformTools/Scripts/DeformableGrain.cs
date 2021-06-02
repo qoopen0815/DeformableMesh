@@ -20,6 +20,7 @@ public class DeformableGrain : MonoBehaviour
         this._rigidBody.sleepThreshold = this._sleepThreshold;
         this._targetTerrain = GameObject.Find(this._targetTarrainName);
         this._isDeformable = true;
+        this.gameObject.layer = LayerMask.NameToLayer("InActiveGrain");
     }
 
     private void Update()
@@ -45,6 +46,12 @@ public class DeformableGrain : MonoBehaviour
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == this._bucketLayerName)
         {
+            this.gameObject.layer = LayerMask.NameToLayer("ActiveGrain");
+            this._isDeformable = false;
+        }
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "ActiveGrain")
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("ActiveGrain");
             this._isDeformable = false;
         }
     }
@@ -53,6 +60,12 @@ public class DeformableGrain : MonoBehaviour
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == this._bucketLayerName)
         {
+            this.gameObject.layer = LayerMask.NameToLayer("InActiveGrain");
+            this._isDeformable = true;
+        }
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "ActiveGrain")
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("InActiveGrain");
             this._isDeformable = true;
         }
     }

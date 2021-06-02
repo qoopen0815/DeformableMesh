@@ -8,13 +8,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - SandPrefab
+  - 
   - Water
   - UI
   - Bucket
   - Terrain
-  - 
-  - 
+  - ActiveGrain
+  - InActiveGrain
   - 
   - 
   - 
