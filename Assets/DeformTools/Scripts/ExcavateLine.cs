@@ -13,18 +13,22 @@ public class ExcavateLine : MonoBehaviour
     [SerializeField] private float _lineLength;
 
     private GameObject _targetTerrain;
+    private TerrainManager _terrainManager;
     private Vector3[] _lineEnd;
+    private bool _isDeformable;
 
     // Start is called before the first frame update
     void Start()
     {
         CapsuleCollider collider = this.gameObject.AddComponent<CapsuleCollider>();
         this._targetTerrain = GameObject.Find(this._targetTarrainName);
+        this._terrainManager = this._targetTerrain.GetComponent<TerrainManager>();
         collider.isTrigger = true;
         collider.direction = 2;
         collider.radius = 0.01f;
         collider.height = this._lineLength / 6;
         collider.center = this._lineCenterPos / 4;
+        this._isDeformable = false;
     }
 
     // Update is called once per frame
@@ -32,6 +36,13 @@ public class ExcavateLine : MonoBehaviour
     {
         this._lineEnd = new Vector3[] { new Vector3(0, 0, -this._lineLength/2), new Vector3(0, 0, this._lineLength / 2) };
         this._lineRenderer.SetPositions(new Vector3[] { this.transform.position + this._lineCenterPos + this._lineEnd[0], this.transform.position + this._lineCenterPos + this._lineEnd[1] });
+
+        if (this._isDeformable)
+        {
+            Vector3[] targets = this.GetExcavateArea(this.transform.position + this._lineCenterPos + this._lineEnd[0],
+                                                     this.transform.position + this._lineCenterPos + this._lineEnd[1]);
+            this._terrainManager.ExcavateWithSand(targets);
+        }
     }
 
     private void OnDisable()
@@ -43,9 +54,31 @@ public class ExcavateLine : MonoBehaviour
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == this._targetLayerName)
         {
-            Vector3[] targets = this.GetExcavateArea(this.transform.position + this._lineCenterPos + this._lineEnd[0], 
-                                                     this.transform.position + this._lineCenterPos + this._lineEnd[1]);
-            this._targetTerrain.GetComponent<TerrainManager>().ExcavateWithSand(targets);
+            //Vector3[] line = new Vector3[] { this.transform.position + this._lineCenterPos + this._lineEnd[0], this.transform.position + this._lineCenterPos + this._lineEnd[1] };
+            //if (line[0].y > this._terrainManager.GetHeightmap(line[0]))
+            //{
+            //    if (line[1].y > this._terrainManager.GetHeightmap(line[1]))
+            //    {
+            //        this._isDeformable = true;
+            //    }
+            //}
+            this._isDeformable = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (LayerMask.LayerToName(other.gameObject.layer) == this._targetLayerName)
+        {
+            Vector3[] line = new Vector3[] { this.transform.position + this._lineCenterPos + this._lineEnd[0], this.transform.position + this._lineCenterPos + this._lineEnd[1] };
+            if ( line[0].y > this._terrainManager.GetHeightmap(line[0]) && line[1].y > this._terrainManager.GetHeightmap(line[1]))
+            {
+                this._isDeformable = false;
+            }
+            else
+            {
+                this._isDeformable = true;
+            }
         }
     }
 

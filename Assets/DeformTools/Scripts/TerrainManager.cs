@@ -68,6 +68,12 @@ public class TerrainManager : MonoBehaviour
         return result;
     }
 
+    public float GetHeightmap(Vector3 position)
+    {
+        Vector3Int terrainPos = this.ToTerrainPosition(position);
+        return this._terrainHeightmap[terrainPos.z, terrainPos.x] * this._terrainSize.y;
+    }
+
     public bool SetHeightmap(Vector3Int position)
     {
         this._terrainHeightmap[position.z, position.x] = position.y;
